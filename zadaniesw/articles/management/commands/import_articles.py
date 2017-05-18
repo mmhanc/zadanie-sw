@@ -11,7 +11,8 @@ from articles.models import Article
 
 def create_articles(content):
     """
-    
+    :param content: XML string
+    :return: creates Article objects
     """
     # Open XML document using minidom parser
     DOMTree = minidom.parseString(content)
@@ -36,6 +37,8 @@ def create_articles(content):
                 attr_name, tag_name = tag
                 content = i.getElementsByTagName(tag_name)[0].childNodes[0]\
                     .toxml()
+                # jeśli nazwa taga wskazuje na datę, parsujemy ją w obsługiwany
+                # przez modele django format
                 if tag_name == 'pubDate':
                     content = parser.parse(content)
                 setattr(article, attr_name, content)

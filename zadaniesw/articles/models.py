@@ -6,7 +6,7 @@ from django.db import models
 
 class Article(models.Model):
     """
-
+    Article model.
     """
     guid = models.CharField('globally unique identifier', unique=True,
                             max_length=150)
