@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ object.title }}</title>
+</head>
+<body>
+    <h1>{{ object.title }}</h1>
+    <p>{{ object.content }}</p>
+    <p><a href="{{ object.link }}">Go to original article</a></p>
+    <p>Published: {{ object.date_published|date }}</p>
+    {% url 'article_list' as list_url %}
+    <p><a href="{{ list_url }}">Go back to the list</a></p>
+</body>
+</html>
